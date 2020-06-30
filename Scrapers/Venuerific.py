@@ -4,18 +4,21 @@ import VenueClass
 
 allVenues = []  # Array to store all Venues of type VenueClass
 
+debug = False
+
 
 def extractVenue(venue):
+    print("------")
     # Extract Rating from this page first
     ratingsHtml = venue.find('p', class_="reviews")
     ratings = len(ratingsHtml.findAll(
         'span', class_="fa fa-star", style="color: #fa5f4a"))
+
     # Extract Link
     link = venue.find('a')['href']
 
     # Request actual Link to entire page
     url = "https://www.venuerific.com{}".format(link)
-    # print(url)
     response = get(url)
     html_soup_individual_venue = BeautifulSoup(response.text, 'html.parser')
 
@@ -55,9 +58,10 @@ def extractVenue(venue):
     # Optional Starting Price
     priceHtml = html_soup_individual_venue.find('div', class_="price")
     price = ""
-    if(priceHtml):
+    if(priceHtml and priceHtml.find('label')):
         price += priceHtml.find('label').getText().strip()
-        price += " "
+    price += " "
+    if(priceHtml and priceHtml.find('strong')):
         price += priceHtml.find('strong').getText().strip()
 
     # Pax
@@ -81,6 +85,9 @@ def extractVenue(venue):
     # Add Venue to object
     allVenues.append(singleVenue.getVenue())
 
+    if debug:
+        print(singleVenue.getVenue())
+
 
 def getVenuesOnPage(html_soup):
     venues = html_soup.find_all(
@@ -91,18 +98,22 @@ def getVenuesOnPage(html_soup):
 
 
 # MAIN FUNCTION
-print("Hello")
-currentPage = 1
+print("Start Venuerific Scraper")
+currentPage = 1  # Initialised to first page
 while True:
     # Request html from website
     url = "https://www.venuerific.com/sg/search?page={}".format(currentPage)
     response = get(url)
     html_soup = BeautifulSoup(response.text, 'html.parser')
-    # Call function to get venues
-    getVenuesOnPage(html_soup)
     # Check for last page
     blankPage = html_soup.find_all('div', class_='blank-slate extra-large')
-    if(len(blankPage) == 1 or currentPage == 1):
+    if(len(blankPage) == 1):
         break
+    # Call function to get venues
+    getVenuesOnPage(html_soup)
     # Increase counter to go next page
     currentPage += 1
+
+if debug:
+    print(allVenues)
+    print("The End")
