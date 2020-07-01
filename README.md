@@ -15,7 +15,10 @@
 * To use pipenv, you need to install pip.`pip install pipenv`
 * Next, you create a new environment by using the command `pipenv install` This will look for a pipenv file, if it doesn’t exist, it will create a new environment and activate it.
 * To activate it `pipenv shell`
-* To install a new package do `pipenv install package` so that pipenv will add the package to the pipenv file called Pipfile
+* To install a new package do `pipenv install <packageName>` so that pipenv will add the package to the pipenv file called Pipfile
+
+### (2.1) Subsequent runs after the above configuration
+* Activate,  `pipenv shell`
 
 ### (3) Use the Requirements.txt
 * To download all the required dependencies, simply run `pip install -r requirements.txt`
