@@ -18,7 +18,7 @@
 * To install a new package do `pipenv install <packageName>` so that pipenv will add the package to the pipenv file called Pipfile
 
 ### (2.1) Subsequent runs after the above configuration
-* Activate,  `pipenv shell`
+* Activate pipenv by using the command  `pipenv shell`
 
 ### (3) Use the Requirements.txt
 * To download all the required dependencies, simply run `pip install -r requirements.txt`
