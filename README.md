@@ -13,7 +13,8 @@
 ### (2) Install PipEnv as package manager
 * Recommended to use PipEnv to manage python packages. PipEnv is just like NPM. It helps you to download the dependencies required for the python project. See more in this [link:](https://medium.com/@krishnaregmi/pipenv-vs-virtualenv-vs-conda-environment-3dde3f6869ed)
 * To use pipenv, you need to install pip.`pip install pipenv`
-* Next, you create a new environment by using the command `pipenv install` This will look for a pipenv file, if it doesn’t exist, it will create a new environment and activate it.
+* Next, you create a new environment by using the command `pip install pipenv` This will look for a pipenv file, if it doesn’t exist, it will create a new environment and activate it.
+* If an error occur, try `pip install pipenv==2018.11.26`
 * To activate it `pipenv shell`
 * To install a new package do `pipenv install <packageName>` so that pipenv will add the package to the pipenv file called Pipfile
 
@@ -25,7 +26,6 @@
 * Whenever you download a new library, add it to requirements.txt by doing `pip freeze > requirements.txt`
 =======
 * Whenever you download a new library, add it to requirements.txt by doing `pip lock -r > requirements.txt`
->>>>>>> 581fb121ee5cfc3385906591ef83fbf7c011c320
 
 ## Helpful links
 * https://github.com/pypa/pipenv/issues/4296
