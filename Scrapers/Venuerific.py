@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from requests import get
 import VenueClass
+import json
 
 allVenues = []  # Array to store all Venues of type VenueClass
 
@@ -9,28 +10,32 @@ debug = False
 
 def extractVenue(venue):
     print("------")
+
     # Extract Rating from this page first
     ratingsHtml = venue.find('p', class_="reviews")
     ratings = len(ratingsHtml.findAll(
         'span', class_="fa fa-star", style="color: #fa5f4a"))
 
-    # Extract Link
-    link = venue.find('a')['href']
-
+    linkToGo = venue.find('a')['href']
     # Request actual Link to entire page
-    url = "https://www.venuerific.com{}".format(link)
+    url = "https://www.venuerific.com{}".format(linkToGo)
     response = get(url)
     html_soup_individual_venue = BeautifulSoup(response.text, 'html.parser')
+    # Extract Link
+    link = url
 
     # Extract Images
     imagesLink = []
+
     bigImage = html_soup_individual_venue.find(
         'div', class_="col-md-6 big-image").find('img')['src']
     imagesLink.append(bigImage)
+
     smallImages = html_soup_individual_venue.findAll(
         'div', class_="col-md-6 small-image")
     for image in smallImages:
-        imagesLink.append(image.find('img')['src'])
+        if(image.find('img')):
+            imagesLink.append(image.find('img')['src'])
 
     # Extract Title
     title = html_soup_individual_venue.find(
@@ -55,14 +60,38 @@ def extractVenue(venue):
     if(promoHtml):
         promos += promoHtml.getText().strip()
 
-    # Optional Starting Price
-    priceHtml = html_soup_individual_venue.find('div', class_="price")
-    price = ""
-    if(priceHtml and priceHtml.find('label')):
-        price += priceHtml.find('label').getText().strip()
-    price += " "
-    if(priceHtml and priceHtml.find('strong')):
-        price += priceHtml.find('strong').getText().strip()
+    # Rooms available
+    allRoomsHtml = html_soup_individual_venue.findAll(
+        'div', class_="info-title")
+    roomName = []
+    for roomHtml in allRoomsHtml:
+        roomName.append(roomHtml.find("h2").getText().strip())
+
+    # Price info for the different rooms
+    price = []
+    priceHtmls = html_soup_individual_venue.findAll(
+        'div', class_="abstract price-info")
+    for index, prices in enumerate(priceHtmls):
+        if prices:
+            priceVal = prices.getText().strip(). replace("PRICE INFO", "")
+            room = roomName[index]
+            price.append({
+                "room": room,
+                "price": priceVal
+            })
+
+    # Starting Price
+    # Only use this as pricing if none is specified above
+    if(len(price) == 0):
+        priceHtml = html_soup_individual_venue.find('div', class_="price")
+        price = ""
+        if(priceHtml and priceHtml.find('label')):
+            price += priceHtml.find('label').getText().strip()
+        price += " "
+        if(priceHtml and priceHtml.find('strong')):
+            price += priceHtml.find('strong').getText().strip()
+
+        price = [price.strip()]
 
     # Pax
     paxHtml = html_soup_individual_venue.find(
@@ -78,12 +107,21 @@ def extractVenue(venue):
     if(descriptionHtml):
         description = descriptionHtml.get_text()
 
+    # Facilities
+    facilitiesHtml = html_soup_individual_venue.findAll(
+        'div', class_="col-md-4 col-xs-6 col-sm-6 venuerific-icon-wrapper")
+    facilities = []
+    for facility in facilitiesHtml:
+        if(not facility.find('div', class_="venuerific-icon-food-beverage-chinese")):
+            facilities.append(facility.getText().strip())
+
     # Create Venue Class
     singleVenue = VenueClass.Venue(
-        ratings, link, imagesLink, title, location, tags, promos, price, pax, description)
+        ratings, link, imagesLink, title, location, tags, price, pax, description, facilities, roomName, promos)
 
     # Add Venue to object
-    allVenues.append(singleVenue.getVenue())
+    if(not singleVenue in allVenues):
+        allVenues.append(singleVenue.getVenue())
 
     if debug:
         print(singleVenue.getVenue())
@@ -94,7 +132,10 @@ def getVenuesOnPage(html_soup):
         'article', class_='venue-item flex-column col-md-4 col-sm-4 col-xs-12')
 
     for venue in venues:
-        extractVenue(venue)
+        try:
+            extractVenue(venue)
+        except:
+            print("Error in scraper for {}".format(venue.find('a')['href']))
 
 
 # MAIN FUNCTION
@@ -114,6 +155,9 @@ while True:
     # Increase counter to go next page
     currentPage += 1
 
+with open('../Data/venuerific.json', 'w') as outfile:
+    json.dump(allVenues, outfile)
+
+
 if debug:
-    print(allVenues)
     print("The End")
