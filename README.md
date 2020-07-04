@@ -21,7 +21,7 @@
 * Activate pipenv by using the command  `pipenv shell`
 
 ### (3) Use the Requirements.txt
-* To download all the required dependencies, simply run `pip install -r requirements.txt`
+* To download all the required dependencies, simply run `pipenv install -r requirements.txt`
 * Whenever you download a new library, add it to requirements.txt by doing `pip freeze > requirements.txt`
 
 ## Helpful links
