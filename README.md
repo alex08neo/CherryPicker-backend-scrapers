@@ -29,3 +29,4 @@
 * https://medium.com/@krishnaregmi/pipenv-vs-virtualenv-vs-conda-environment-3dde3f6869ed
 * https://hackernoon.com/building-a-web-scraper-from-start-to-finish-bb6b95388184
 * https://medium.com/@DrGabrielHarris/python-how-create-requirements-txt-using-pipenv-2c22bbb533af
+* https://pypi.org/project/python-dotenv/
