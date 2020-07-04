@@ -10,7 +10,7 @@ debug = False
 if debug:
     venueTypes = ["xmas-party"]
 else:
-    venueTypes = ["18th-birthday-party", "academic-venues", "activity-day",
+    venueTypes = ["academic-venues", "activity-day",
                   "afternoon-tea", "ball", "anniversary-party", "art-studio", "asian-weddings", "auditorium-venues",
                   "away-day-venues", "baby-shower", "bbq-venues", "bowling-alley", "birthday-dinner", "birthday-party", "boat", "unique",
                   "cafe-venues", "garden", "terrace", "kitchen"]
