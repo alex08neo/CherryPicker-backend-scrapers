@@ -22,7 +22,7 @@
 
 ### (3) Use the Requirements.txt
 * To download all the required dependencies, simply run `pipenv install -r requirements.txt`
-* Whenever you download a new library, add it to requirements.txt by doing `pipenv lock -r > requirements.txt`
+* Whenever you download a new library, add it to requirements.txt by doing `pip lock -r > requirements.txt`
 
 ## Helpful links
 * https://github.com/pypa/pipenv/issues/4296
