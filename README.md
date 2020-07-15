@@ -24,7 +24,7 @@
 ### (3) Use the Requirements.txt
 * To download all the required dependencies, simply run `pipenv install -r requirements.txt`
 * Whenever you download a new library, add it to requirements.txt by doing `pip freeze > requirements.txt`
-=======
+
 * Whenever you download a new library, add it to requirements.txt by doing `pip lock -r > requirements.txt`
 
 ## Helpful links
