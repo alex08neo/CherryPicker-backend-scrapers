@@ -12,7 +12,7 @@ def extractVenue(venue):
     title_html = venue.find('div', class_='event-name')
     title = ''
     if title_html:
-        title = title_html.text
+        title = title_html.text.strip()
 
     # extract tags
     venue_tags = venue.find('b', class_='t-holder').text.split(",")
@@ -29,7 +29,7 @@ def extractVenue(venue):
     venue_images = indiv_venue.find_all('a', class_='example-image-link')
     images = []
     for venue_image in venue_images:
-        image = 'venuexplorer.com.sg' + str(venue_image['href'])
+        image = 'https://www.venuexplorer.com.sg' + str(venue_image['href'])
         images.append(image)
 
     # extract starting price - same for all rooms within this venue
@@ -43,31 +43,6 @@ def extractVenue(venue):
     capacity = ''
     if capacity_html:
         capacity = capacity_html.text.split(' ')[0].strip()
-
-    # extract the different rooms and their capacity in this venue
-    rooms_html = indiv_venue.find_all('ul', class_='space')
-    rooms = []
-    if rooms_html and len(rooms_html) > 1:
-        for index, room in enumerate(rooms_html[1].find_all('li')):
-            if room:
-                tokens = room.text.split(' ')
-                room_name = tokens[3].strip()
-                room_cap = tokens[0].strip()
-                rooms.append({
-                    "room" : room_name,
-                    "capacity" : room_cap
-                })
-
-    # for room_html in rooms_html.find_all('li'):
-    #     if room_html:
-    #         texts = room_html.text.split(' ')
-    #         capacity = texts[0].strip() # but this one sometimes is empty. might need to take the above capacity and take it
-    #     # as a general capacity across all events
-    #         roomName = texts[3].strip()
-    #         roomNames.append(roomName)
-    #     else:
-    #         capacity = indiv_venue.find_all('div', class_='col-lg-3 col-md-3 col-sm-3 text-center')[2].text.split(' ')[0].strip()
-    #         break
 
     # extract location
     location_html = indiv_venue.find_all('div', class_='col-lg-3 col-md-3 col-sm-3 text-center')[3]
@@ -88,12 +63,11 @@ def extractVenue(venue):
         desc = desc_html.text.strip()
     
     # no ratings, promos
-    ratings = ''
-    promos = ''
+    ratings = 0
 
     # create Venue Class with all inputs
     singleVenue = VenueClass.Venue(
-        ratings, venue_link, images, title, location, tags, price, capacity, desc, facilities, rooms, promos)
+        ratings, venue_link, images, title, location, tags, price, capacity, desc, facilities)
 
     # add this venue to the Venue Class array
     if(not singleVenue in allVenues):
@@ -123,8 +97,7 @@ while True:
     currentPage += 1
 
 # write all data into a json file
-os.chdir(r'../Data/')
-with open('venuExplorer.json', 'w') as outfile:
-    json.dump(allVenues, outfile)
+with open('Data/VenuExplorer.json', 'w', encoding='utf-8') as outfile:
+    json.dump(allVenues, outfile, ensure_ascii=False)
 
 ##### END OF MAIN FUNCTION #####
