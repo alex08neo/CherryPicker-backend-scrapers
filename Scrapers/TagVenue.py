@@ -23,7 +23,7 @@ visitedVenues = []
 
 
 def extractVenue(room, venueType):
-    print("----")
+    print("--tagvenue--")
 
     # Get ratings
     ratings = room["room_rating"]
@@ -137,11 +137,11 @@ for venueType in venueTypes:
         try:
             extractVenue(room, venueType)
         except:
-            print("Error in scraper for {}".format(room["venue_name"]))
+            print("Error in TagVenue Scraper for {}".format(room["venue_name"]))
 
 with open('Data/TagVenue.json', 'w', encoding='utf-8') as outfile:
     json.dump(allVenues,
               outfile, ensure_ascii=False)
-
+print("Finished TagVenue Scraper")
 if debug:
     print("The End")

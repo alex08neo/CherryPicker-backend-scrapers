@@ -11,7 +11,7 @@ allVenues = []  # Array to store all Venues of type VenueClass
 
 def extractVenue(venue):
 
-    print("----")
+    print("--VenuExplorer--")
 
     # extract title
     title_html = venue.find('div', class_='event-name')
@@ -61,7 +61,7 @@ def extractVenue(venue):
                 }
             else:
                 item = {
-                    "pricing": pricing,
+                    "pricing": "Inquire for pricing availabilities",
                 }
             item.update(eachAvailability)
             price.append(item)
@@ -113,6 +113,7 @@ def extractVenue(venue):
 
 
 ##### MAIN FUNCTION #####
+print("Start VenuExplorer Scraper")
 currentPage = 1  # Initialised to first
 
 while True:
@@ -132,8 +133,7 @@ while True:
         try:
             extractVenue(venue)
         except:
-            print("Error in scraper for {}".format(
-                venue.find('div', class_='event-name').text.strip()))
+            print("Error in VenueExplorer Scraper for {}".format(venue.find('div', class_='event-name').text.strip()))
 
     # Increase counter to go next page
     currentPage += 1
@@ -142,4 +142,5 @@ while True:
 with open('Data/Venuexplorer.json', 'w', encoding='utf-8') as outfile:
     json.dump(allVenues, outfile, ensure_ascii=False)
 
+print("Finished VenuExplorer Scraper")
 ##### END OF MAIN FUNCTION #####

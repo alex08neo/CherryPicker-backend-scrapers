@@ -19,7 +19,7 @@ debug = False
 
 
 def extractVenue(venue):
-    print("------")
+    print("--Venuerific--")
 
     # (1)
     # Extract Rating from this page first
@@ -274,7 +274,7 @@ def getVenuesOnPage(html_soup):
         try:
             extractVenue(venue)
         except:
-            print("Error in scraper for {}".format(venue.find('a')['href']))
+            print("Error in Venuerific Scraper for {}".format(venue.find('a')['href']))
 
 
 # MAIN FUNCTION
@@ -297,7 +297,7 @@ while True:
 with open('Data/Venuerific.json', 'w', encoding='utf-8') as outfile:
     json.dump(allVenues,
               outfile, ensure_ascii=False)
-
+print("Finished Venuerific Scraper")
 
 if debug:
     print("The End")
