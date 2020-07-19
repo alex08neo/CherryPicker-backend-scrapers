@@ -11,20 +11,21 @@ client = MongoClient(MONGODB_CONNECTION_STRING)
 db = client.get_database('CherryPickerDB')
 now = datetime.now()
 
-collections = db.list_collection_names()
-print(collections)
-if(len(collections) > 2):
-    minDate = collections[0].split('_')[1]
-    for i in range(1,len(collections)):
-        if(collections[i].split('_')[1]<minDate):
-            minDate = collections[i].split('_')[1]
+# ensure only latest 3 collections in DB at any one time
+existingCollections = db.list_collection_names()
+
+if(len(existingCollections) > 2):
+    minDate = existingCollections[0].split('_')[1]
+    for i in range(1,len(existingCollections)):
+        if(existingCollections[i].split('_')[1]<minDate):
+            minDate = existingCollections[i].split('_')[1]
     db.drop_collection('venue_'+minDate)
     collections = db.list_collection_names()
-    print(collections)
+    
 
 venue = db['venue_'+now.strftime("%Y-%m-%d %H:%M:%S")]
 
-
+# load data to mongo
 for filename in os.listdir(directory):
     if filename.endswith('.json'):
        print("Seeding ", os.path.splitext(os.path.basename(filename))[0], "into DB")
