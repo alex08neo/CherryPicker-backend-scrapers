@@ -274,7 +274,7 @@ def getVenuesOnPage(html_soup):
         try:
             extractVenue(venue)
         except:
-            print("Error in scraper for {}".format(venue.find('a')['href']))
+            print("Error in scraper for {}".format("Venuerific Scraper " + venue.find('a')['href']))
 
 
 # MAIN FUNCTION
