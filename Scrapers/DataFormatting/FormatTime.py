@@ -69,9 +69,11 @@ def fix(time):
 
 
 def FormatTime(time):
-
     # Split by dash
-    time = time.split(" – ")
+    time = time.split("–")
+    if(len(time) != 2):
+        # Split by another type of dash
+        time = time[0].split("-")
     if(len(time) != 2):
         return "Inquire for timing availabilities"
 

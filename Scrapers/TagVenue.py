@@ -3,6 +3,7 @@ from requests import get
 import VenueClass
 import json
 from DataFormatting.FormatTime import FormatTime
+from DataFormatting.FormatText import FormatTitle
 
 debug = False
 # Hardcoded venue types
@@ -22,7 +23,7 @@ visitedVenues = []
 
 
 def extractVenue(room, venueType):
-    print("----")
+    print("--tagvenue--")
 
     # Get ratings
     ratings = room["room_rating"]
@@ -31,7 +32,7 @@ def extractVenue(room, venueType):
     images = room["photos"]
 
     # Get Title
-    title = room["venue_name"] + " | " + room["room_name"]
+    title = FormatTitle(room["venue_name"] + " | " + room["room_name"])
 
     # Get Room Name
     roomName = [room["room_name"]]
@@ -141,6 +142,6 @@ for venueType in venueTypes:
 with open('Data/TagVenue.json', 'w', encoding='utf-8') as outfile:
     json.dump(allVenues,
               outfile, ensure_ascii=False)
-
+print("Finished TagVenue Scraper")
 if debug:
     print("The End")

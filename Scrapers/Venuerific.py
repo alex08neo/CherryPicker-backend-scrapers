@@ -4,6 +4,7 @@ import VenueClass
 import json
 from DataFormatting.FormatTime import FormatTime
 from DataFormatting.FormatPrice import FormatPrice
+from DataFormatting.FormatText import FormatSentence, FormatTitle
 
 allVenues = []  # Array to store all Venues of type VenueClass
 visitedVenues = []
@@ -18,7 +19,7 @@ debug = False
 
 
 def extractVenue(venue):
-    print("------")
+    print("--Venuerific--")
 
     # (1)
     # Extract Rating from this page first
@@ -57,7 +58,7 @@ def extractVenue(venue):
         'div', id="promotion-description")
     promos = ""
     if(promoHtml):
-        promos += promoHtml.getText().strip()
+        promos += FormatSentence(promoHtml.getText().strip())
 
     # Time available
     searchHtml = html_soup_individual_venue.findAll(
@@ -169,8 +170,8 @@ def extractVenue(venue):
                 imagesLink.append(i.find('img')['src'])
 
             # Title
-            title = baseTitle + " | " + eachVenueHtml.find(
-                'div', class_="info-title").find('h2').getText().strip()
+            title = FormatTitle(baseTitle + " | " + eachVenueHtml.find(
+                'div', class_="info-title").find('h2').getText().strip())
 
             infoHtml = eachVenueHtml.find(
                 'div', class_="info-title").findAll('p')
@@ -296,7 +297,7 @@ while True:
 with open('Data/Venuerific.json', 'w', encoding='utf-8') as outfile:
     json.dump(allVenues,
               outfile, ensure_ascii=False)
-
+print("Finished Venuerific Scraper")
 
 if debug:
     print("The End")

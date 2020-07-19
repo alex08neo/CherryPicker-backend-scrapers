@@ -13,7 +13,7 @@
 #       }
 # ]
 
-# The function below will convert the price object above to
+# The function below will convert the price object above to below
 # (OUTPUT)
 # [{'pricing': 'Room booking for 3 hours minimum spending should be SGD250++', 'dayOfWeek': 'Wednesday', 'time': '07:00 - 23:00'},
 # {'pricing': 'Room booking for 3 hours minimum spending should be SGD250++', 'dayOfWeek': 'Thursday', 'time': '07:00 - 23:00'},
