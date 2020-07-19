@@ -9,4 +9,4 @@ echo "Running scripts in parallel"
 wait 
 echo "Finished scraping"
 
-python ./Connect-Database/MongoDB-Connection.pyY
+python ./Connect-Database/MongoDB-Connection.py
