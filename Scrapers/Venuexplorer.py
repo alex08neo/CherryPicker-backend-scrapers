@@ -133,8 +133,7 @@ while True:
         try:
             extractVenue(venue)
         except:
-            print("Error in scraper for {}".format("VenueExplorer Scraper "+
-                venue.find('div', class_='event-name').text.strip()))
+            print("Error in VenueExplorer Scraper for {}".format(venue.find('div', class_='event-name').text.strip()))
 
     # Increase counter to go next page
     currentPage += 1

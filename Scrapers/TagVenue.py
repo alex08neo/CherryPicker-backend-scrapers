@@ -137,7 +137,7 @@ for venueType in venueTypes:
         try:
             extractVenue(room, venueType)
         except:
-            print("Error in scraper for {}".format("TagVenue Scraper "+room["venue_name"]))
+            print("Error in TagVenue Scraper for {}".format(room["venue_name"]))
 
 with open('Data/TagVenue.json', 'w', encoding='utf-8') as outfile:
     json.dump(allVenues,
