@@ -3,6 +3,7 @@ from requests import get
 import VenueClass
 import json
 from DataFormatting.FormatTime import FormatTime
+from DataFormatting.FormatText import FormatTitle
 
 debug = False
 # Hardcoded venue types
@@ -31,7 +32,7 @@ def extractVenue(room, venueType):
     images = room["photos"]
 
     # Get Title
-    title = room["venue_name"] + " | " + room["room_name"]
+    title = FormatTitle(room["venue_name"] + " | " + room["room_name"])
 
     # Get Room Name
     roomName = [room["room_name"]]
