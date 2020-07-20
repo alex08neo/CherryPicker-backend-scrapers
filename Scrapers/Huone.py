@@ -2,10 +2,14 @@ from bs4 import BeautifulSoup
 from requests import get
 import VenueClass
 import json
+from DataFormatting.FormatTime import FormatTime
+from DataFormatting.FormatPrice import FormatPrice
+from DataFormatting.FormatText import FormatTitle
 
 allVenues = []  # Array to store all Venues of type VenueClass
 
 def extractVenue(tag, venue):
+
     # extract link into the venue
     venue_link = venue.find_all('a')[0]['href']
     response = get(venue_link)
@@ -15,7 +19,7 @@ def extractVenue(tag, venue):
     title_html = indiv_venue.find('div', class_='space-title').find('h1')
     title = ''
     if title_html:
-        title = title_html.text.strip()
+        title = FormatTitle(title_html.text.strip())
 
     # location - fixed
     location = 'HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023'
@@ -46,7 +50,7 @@ def extractVenue(tag, venue):
     price_html = facs.find('p')
     price = ''
     if price_html:
-        price = price_html.text.strip()
+        price = FormatPrice(price_html.text.strip())
 
     # no ratings, promos
     ratings = 0
