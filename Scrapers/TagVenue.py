@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 from requests import get
 import VenueClass
 import json
+from DataFormatting.FormatTime import FormatTime
+from DataFormatting.FormatText import FormatTitle
 
 debug = False
 # Hardcoded venue types
@@ -17,10 +19,11 @@ else:
 
 
 allVenues = []  # Array to store all Venues of type VenueClass
+visitedVenues = []
 
 
 def extractVenue(room, venueType):
-    print("----")
+    print("--tagvenue--")
 
     # Get ratings
     ratings = room["room_rating"]
@@ -29,16 +32,13 @@ def extractVenue(room, venueType):
     images = room["photos"]
 
     # Get Title
-    title = room["venue_name"]
+    title = FormatTitle(room["venue_name"] + " | " + room["room_name"])
 
     # Get Room Name
     roomName = [room["room_name"]]
 
     # Tags
     tags = [venueType]
-
-    # pax
-    pax = room["room_standing_capacity"]
 
     # description
     description = room["room_description"]
@@ -48,6 +48,11 @@ def extractVenue(room, venueType):
 
     # Get Link
     link = room["room_url"]
+
+    if(link in visitedVenues):
+        return
+    else:
+        visitedVenues.append(link)
 
     # Request actual Link to entire page
     response = get(link)
@@ -70,6 +75,7 @@ def extractVenue(room, venueType):
             'div', class_='c-pricing-table__item c-pricing-table__item--day').getText().strip()
         time = day.find(
             'div', class_='c-pricing-table__item c-pricing-table__item--time').getText().strip()
+
         priceHtml = day.find(
             'div', class_='c-pricing-table__item c-pricing-table__item--price').getText().strip().replace(" ", "").split("\n")
         actualPrice = ""
@@ -79,8 +85,8 @@ def extractVenue(room, venueType):
 
         priceForDay = {
             "dayOfWeek": dayOfWeek,
-            "time": time.replace("–", "-"),
-            "pricing": actualPrice.replace("–", "-")
+            "time": FormatTime(time),
+            "pricing": actualPrice
         }
         price.append(priceForDay)
 
@@ -100,13 +106,20 @@ def extractVenue(room, venueType):
         if not facility.getText().strip() in allFacilitiesStrikeArr:
             facilities.append(facility.getText().strip())
 
+    # Get PAX
+    paxHtml = html_soup_individual_venue.findAll(
+        'div', class_='room__wrapper--header')
+    if(paxHtml):
+        paxInfo = paxHtml[0].find(
+            'div', class_="c-venue-feature__label").getText().split()
+        pax = paxInfo[2].replace("seats", "").replace("standing", "")
+
     # Create Venue Class
     singleVenue = VenueClass.Venue(
         ratings, link, images, title, location, tags, price, pax, description, facilities, roomName, promos)
 
-    # Remove duplicates
-    if(not singleVenue in allVenues):
-        allVenues.append(singleVenue.getVenue())
+    # Add Venue
+    allVenues.append(singleVenue.getVenue())
 
     if debug:
         print(singleVenue.getVenue())
@@ -124,11 +137,11 @@ for venueType in venueTypes:
         try:
             extractVenue(room, venueType)
         except:
-            print("Error in scraper for {}".format(room["venue_name"]))
+            print("Error in TagVenue Scraper for {}".format(room["venue_name"]))
 
-
-with open('../Data/TagVenue.json', 'w') as outfile:
-    json.dump(allVenues, outfile)
-
+with open('Data/TagVenue.json', 'w', encoding='utf-8') as outfile:
+    json.dump(allVenues,
+              outfile, ensure_ascii=False)
+print("Finished TagVenue Scraper")
 if debug:
     print("The End")
