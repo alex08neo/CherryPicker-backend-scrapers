@@ -2,9 +2,7 @@ from bs4 import BeautifulSoup
 from requests import get
 import VenueClass
 import json
-from DataFormatting.FormatTime import FormatTime
-from DataFormatting.FormatPrice import FormatPrice
-from DataFormatting.FormatText import FormatTitle
+from DataFormatting.FormatText import FormatSentence
 
 allVenues = []  # Array to store all Venues of type VenueClass
 
@@ -19,7 +17,13 @@ def extractVenue(tag, venue):
     title_html = indiv_venue.find('div', class_='space-title').find('h1')
     title = ''
     if title_html:
-        title = FormatTitle(title_html.text.strip())
+        title = "HUONE | " + title_html.text.strip()
+
+    # if venue already exist in the array, just add the tag, no need add a new venue
+    for venue in allVenues:
+        if venue['title'] == title:
+            venue['tags'].append(tag)
+            return
 
     # location - fixed
     location = 'HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023'
@@ -34,7 +38,7 @@ def extractVenue(tag, venue):
     desc_html = indiv_venue.find_all('div', class_='lead')[0]
     desc = ''
     if desc_html:
-        desc = desc_html.text.strip()
+        desc = desc_html.text.strip() + '.'
     
     # extract image links
     venue_images = str(indiv_venue.find('div', class_='image-lift three-images'))
@@ -50,18 +54,22 @@ def extractVenue(tag, venue):
     price_html = facs.find('p')
     price = ''
     if price_html:
-        price = FormatPrice(price_html.text.strip())
+        price = [{
+            "dayOfWeek": "Inquire for day availabilities",
+            "time": "Inquire for timing availabilities",
+            "pricing": FormatSentence(price_html.text.strip())
+            }]
 
     # no ratings, promos
     ratings = 0
+    tags = [tag]
 
     # create Venue Class with all inputs
     singleVenue = VenueClass.Venue(
-        ratings, venue_link, images, title, location, tag, price, capacity, desc, facilities)
+        ratings, venue_link, images, title, location, tags, price, capacity, desc, facilities)
 
     # add this venue to the Venue Class array
-    if(not singleVenue in allVenues):
-        allVenues.append(singleVenue.getVenue())
+    allVenues.append(singleVenue.getVenue())
 
 # function to extract the 3 image links on the individual venue site
 def extract_huone_image_links(html_string):
