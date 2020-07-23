@@ -1,0 +1,431 @@
+[
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/cloud-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2016/12/room-cloud-angle-3-2000x1334.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/h-45-800x533.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/room-cloud-with-people-800x534.jpg"
+        ],
+        "title": "HUONE | Cloud Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $600++. Full day minimum rental $800++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "14",
+        "description": "Let your thoughts run free like the kites flying above your head and grass beneath your feet. This is an intimate room best suited for meetings. It also comes with an attached private balcony, bringing natural sunlight into the room and your meeting.\nThe balcony area with a gorgeous view of the Singapore River can take 12 pax standing.",
+        "facilities": [
+            "65” Samsung TV with HDMI/VGA Input",
+            "High Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "1 White board with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Access to Private Balcony",
+            "Event Coordinator Service"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/cottage-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2016/12/room-cottage-with-people-1-2000x1334.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/room-cottage-angle-2-800x534.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/h-21-800x533.jpg"
+        ],
+        "title": "HUONE | Cottage Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "conference-and-seminar-rooms",
+            "training-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $1600++. Full day minimum rental $2000++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "30",
+        "description": "Get a taste of the Nordic cottage experience by the fireplace in this cosy meeting room. Ideal for training, team meetings and brainstorming sessions. Natural daylight flows into the room from the attached private balcony.\nThe balcony area with a gorgeous view of the Singapore River can take 12 pax standing.",
+        "facilities": [
+            "74” Samsung TV with HDMI/VGA Input",
+            "High Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "2 White boards with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Access to Private Balcony",
+            "Event Coordinator Service",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/forest-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2017/05/Huone-Singapore-forest-room-team-building-seminar-conference-board-meeting-2000x1263.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/Forest-Room-1-800x600.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/h-30-800x533.jpg"
+        ],
+        "title": "HUONE | Forest Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "conference-and-seminar-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $6000++. Full day minimum rental $8000++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "120",
+        "description": "Our largest room is inspired by Nordic birch forests. Best suited for product launches, kick-offs, seminars and more. Forest also provides a wonderful view of the bustling Clark Quay area, perfect for setting a different mood to any event!\nThe balconies with a gorgeous view of the Singapore River can take 12 pax standing.",
+        "facilities": [
+            "Ultra High Definition Projector",
+            "54″ Samsung TV x 2",
+            "High Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "2 White boards with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Event Coordinator Service",
+            "Access to Private Balcony",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/igloo-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2016/12/Huone-Singapore-unique-meeting-room-northern-lights-igloo-2000x1335.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/room-igoo-with-people-800x534.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/h-3-800x533.jpg"
+        ],
+        "title": "HUONE | Igloo Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "function-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $640++. Full day minimum rental $960++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "12",
+        "description": "The world’s first igloo meeting room. How about spotting the mystical northern lights while having a productive meeting?\nThe balcony area with a gorgeous view of the Singapore River can take 12 pax seated / standing.",
+        "facilities": [
+            "Ultra High Definition Projector",
+            "High Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "1 White board with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Event Coordinator Service",
+            "Access to Private Balcony",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/nest-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2017/05/Huone-Singapore-team-meetings-brainstorming-sessions-nest-room-2000x1335.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/room-nest-with-peopletif-800x534.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/h-68-800x533.jpg"
+        ],
+        "title": "HUONE | Nest Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "training-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $500++. Full day minimum rental $700++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "11",
+        "description": "Get your team to cradle up in this warm and comfy Nest. Small groups fit best whether it’s training sessions, internal meetings or workshops\nThe balcony area with a gorgeous view of the Singapore River can take 12 pax standing.",
+        "facilities": [
+            "65” Samsung TV with HDMI/VGA Input",
+            "High-Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "1 White board with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Event Coordinator Service",
+            "Access to Private Balcony",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/runway-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2017/05/Huone-Singapore-luminous-chair-modern-model-runway-room-2000x1335.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/Huone-Singapore-event-venue-Creative-meeting-room-Runwayroom-fashionshow-800x533.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/room-runway-angle-4-800x534.jpg"
+        ],
+        "title": "HUONE | Runway Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "conference-and-seminar-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $3000++. Full day minimum rental $4000++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "40",
+        "description": "A boardroom table that doubles as a runway! Have you got your best pose ready? In addition to being the perfect space for small launch events, Runway is a multi-functional room with movable furniture. The meeting room can easily be transformed into a workshop space or training room..",
+        "facilities": [
+            "Ultra High Definition Projector",
+            "High Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "2 White boards with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Event Coordinator Service",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/sandbox-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2016/12/creative-spaces-singapore-sandbox-room-2000x1334.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/h-61-800x533.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/creative-spaces-huone-singapore-sandbox-room-800x534.jpg"
+        ],
+        "title": "HUONE | Sandbox Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "training-rooms",
+            "function-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $1200++. Full day minimum rental $1600++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "20",
+        "description": "Build a sandcastle, climb a tree and let your inner child go wild. Sandbox Room is one of the creative spaces that will help you unleash your mental barriers for brainstorming sessions!\nThe balcony area with a gorgeous view of the Singapore River can take 8 pax standing.",
+        "facilities": [
+            "74” Samsung TV with HDMI/VGA Input",
+            "High Speed Free Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "1 White board with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Event Coordinator Service",
+            "Access to Private Balcony",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/swing-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2016/12/swing-room-3-2000x1599.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/room-swing-with-people-2-800x534.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/huone-singapore-creative-meeting-room-greenery-swing-treehouse-colourful-800x534.jpg"
+        ],
+        "title": "HUONE | Swing Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "training-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $1200++. Full day minimum rental $1600++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "20",
+        "description": "Finally, a meeting room with swings! Let the new ideas flow in this fun and relax room. Best suited for brainstorming, strategic meetings,  team off-sites, and more. The attached private balcony brings natural sunlight into the room.\nThe balcony area with a gorgeous view of the Singapore River can take 12 pax standing.",
+        "facilities": [
+            "74” Samsung TV with HDMI/VGA Input",
+            "High Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "1 White board with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Event Coordinator Service",
+            "Access to Private Balcony",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/theatre-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2017/05/Huone-Singapore-trendy-classic-events-space-showtime-theatre-product-launch-2000x1335.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/room-theater-with-people-800x534.jpg",
+            "https://huone.events/app/uploads/sites/2/2017/05/Huone-Singapore-creative-meeting-space-theatre-product-launch-speech-conference-800x594.jpg"
+        ],
+        "title": "HUONE | Theatre Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "conference-and-seminar-rooms",
+            "function-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $5000++. Full day minimum rental $7000++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "100",
+        "description": "It’s time to put the business back in show business. Step into the spotlight as you launch your new products, present a new concept or give an inspirational speech..",
+        "facilities": [
+            "Ultra High Definition Projector",
+            "High Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "2 White boards with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Event Coordinator Service",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/time-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2017/05/Huone-Singapore-time-room-stylish-brainstorming-meeting-discussion-2000x1335.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/room-time-with-people-2-800x534.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/time-iphone-800x530.jpg"
+        ],
+        "title": "HUONE | Time Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "conference-and-seminar-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $2550++. Full day minimum rental $3500++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "40",
+        "description": "The future is built today, the time is now. This futuristic room is ideal for management meetings, training, workshops, and anything else you can think of.\nThe balcony area with a gorgeous view of the Singapore River can take 10 pax standing.",
+        "facilities": [
+            "82″ Samsung TV with HDMI/VGA Input",
+            "High Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "2 White board with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Event Coordinator Service",
+            "Access to Private Balcony",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    },
+    {
+        "ratings": 0,
+        "link": "https://www.huone.events/sg/meeting-room/warehouse-room/",
+        "images": [
+            "https://huone.events/app/uploads/sites/2/2017/05/Huone-Singapore-creative-meeting-space-vintage-retro-warehouse-room-2000x1335.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/room-warehouse-with-people-800x534.jpg",
+            "https://huone.events/app/uploads/sites/2/2016/12/h-9-800x533.jpg"
+        ],
+        "title": "HUONE | Warehouse Room",
+        "location": "HUONE Clarke Quay, 3D River Valley Road, #03-01, Clarke Quay, Singapore 179023",
+        "tags": [
+            "meeting-rooms",
+            "function-rooms"
+        ],
+        "price": [
+            {
+                "dayOfWeek": "Inquire for day availabilities",
+                "time": "Inquire for timing availabilities",
+                "pricing": "Half day minimum rental $1500++. Full day minimum rental $1900++. Our pricing model: (package price x no. Of pax) or (minimum rental) – whichever is higher."
+            }
+        ],
+        "pax": "27",
+        "description": "Did you know Clarke Quay used to be a warehouse during the British Colonial times? Soak in nostalgia in this exquisite room and on the attached private balcony. The meeting space is ideal for several functions such as seminars, trainings, internal offsite meetings, strategy sessions and management meetings\nThe balcony area with a gorgeous view of the Singapore River can take 12 pax standing.",
+        "facilities": [
+            "82” Samsung TV with HDMI/VGA Input",
+            "High Speed Wifi",
+            "Genelec Sound System",
+            "Writing Materials (pens, post-its, paper)",
+            "2 White board with flip chart paper (additional flip chart at $20++)",
+            "Drink Station (Free Flow Coffee & Tea)",
+            "Event Coordinator Service",
+            "Access to Private Balcony",
+            "Creative Environment"
+        ],
+        "roomNames": [
+            ""
+        ],
+        "promos": ""
+    }
+]
