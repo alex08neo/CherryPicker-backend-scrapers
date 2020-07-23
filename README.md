@@ -47,6 +47,7 @@
 - TagVenue
 - Venuerific
 - VenuExplorer
+- Huone
 
 ## Helpful links to get started on scraping and pipenv
 
