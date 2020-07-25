@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup
 from requests import get
-import VenueClass
 import json
 from DataFormatting.FormatTime import FormatTime
 from DataFormatting.FormatPrice import FormatPrice
 from DataFormatting.FormatText import FormatTitle
+from DataFormatting import VenueClass
 
 allVenues = []  # Array to store all Venues of type VenueClass
 
@@ -133,7 +133,8 @@ while True:
         try:
             extractVenue(venue)
         except:
-            print("Error in VenueExplorer Scraper for {}".format(venue.find('div', class_='event-name').text.strip()))
+            print("Error in VenueExplorer Scraper for {}".format(
+                venue.find('div', class_='event-name').text.strip()))
 
     # Increase counter to go next page
     currentPage += 1

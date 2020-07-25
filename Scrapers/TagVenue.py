@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
 from requests import get
-import VenueClass
 import json
 from DataFormatting.FormatTime import FormatTime
 from DataFormatting.FormatText import FormatTitle
+from DataFormatting import VenueClass
 
 debug = False
 # Hardcoded venue types
@@ -33,9 +33,6 @@ def extractVenue(room, venueType):
 
     # Get Title
     title = FormatTitle(room["venue_name"] + " | " + room["room_name"])
-
-    # Get Room Name
-    roomName = [room["room_name"]]
 
     # Tags
     tags = [venueType]
@@ -116,7 +113,7 @@ def extractVenue(room, venueType):
 
     # Create Venue Class
     singleVenue = VenueClass.Venue(
-        ratings, link, images, title, location, tags, price, pax, description, facilities, roomName, promos)
+        ratings, link, images, title, location, tags, price, pax, description, facilities, promos)
 
     # Add Venue
     allVenues.append(singleVenue.getVenue())
@@ -137,7 +134,8 @@ for venueType in venueTypes:
         try:
             extractVenue(room, venueType)
         except:
-            print("Error in TagVenue Scraper for {}".format(room["venue_name"]))
+            print("Error in TagVenue Scraper for {}".format(
+                room["venue_name"]))
 
 with open('Data/TagVenue.json', 'w', encoding='utf-8') as outfile:
     json.dump(allVenues,

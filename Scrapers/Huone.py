@@ -1,12 +1,15 @@
 from bs4 import BeautifulSoup
 from requests import get
-import VenueClass
 import json
 from DataFormatting.FormatText import FormatSentence
+from DataFormatting import VenueClass
 
 allVenues = []  # Array to store all Venues of type VenueClass
 
+
 def extractVenue(tag, venue):
+
+    print("--Huone--")
 
     # extract link into the venue
     venue_link = venue.find_all('a')[0]['href']
@@ -39,9 +42,10 @@ def extractVenue(tag, venue):
     desc = ''
     if desc_html:
         desc = desc_html.text.strip() + '.'
-    
+
     # extract image links
-    venue_images = str(indiv_venue.find('div', class_='image-lift three-images'))
+    venue_images = str(indiv_venue.find(
+        'div', class_='image-lift three-images'))
     images = extract_huone_image_links(venue_images)
 
     # extract facilities
@@ -58,7 +62,7 @@ def extractVenue(tag, venue):
             "dayOfWeek": "Inquire for day availabilities",
             "time": "Inquire for timing availabilities",
             "pricing": FormatSentence(price_html.text.strip())
-            }]
+        }]
 
     # no ratings, promos
     ratings = 0
@@ -72,18 +76,25 @@ def extractVenue(tag, venue):
     allVenues.append(singleVenue.getVenue())
 
 # function to extract the 3 image links on the individual venue site
+
+
 def extract_huone_image_links(html_string):
     links = []
     # first link
-    links.append('https://huone.events' + str(html_string[html_string.find("url(")+4:html_string.find(")")]))
+    links.append('https://huone.events' +
+                 str(html_string[html_string.find("url(")+4:html_string.find(")")]))
     # second link
-    links.append('https://huone.events' + str(html_string[html_string.find("url(", html_string.find("url(") + 1)+4:html_string.find(")", html_string.find(")") + 1)]))
+    links.append('https://huone.events' + str(html_string[html_string.find(
+        "url(", html_string.find("url(") + 1)+4:html_string.find(")", html_string.find(")") + 1)]))
     # third link
-    links.append('https://huone.events' + str(html_string[html_string.find("url(", html_string.find("url(", html_string.find("url(") + 1) + 1)+4:html_string.find(")", html_string.find(")", html_string.find(")") + 1) + 1)]))
+    links.append('https://huone.events' + str(html_string[html_string.find("url(", html_string.find(
+        "url(", html_string.find("url(") + 1) + 1)+4:html_string.find(")", html_string.find(")", html_string.find(")") + 1) + 1)]))
     return links
 
+
 ##### MAIN FUNCTION #####
-tags = ['meeting-rooms', 'conference-and-seminar-rooms', 'training-rooms', 'function-rooms']
+tags = ['meeting-rooms', 'conference-and-seminar-rooms',
+        'training-rooms', 'function-rooms']
 
 for tag in tags:
 
