@@ -1,8 +1,11 @@
 # A MongoDB Atlas DB cluster has been set up
 from pymongo import MongoClient
 from datetime import datetime
+import pytz
 import os
 import json
+
+SGT = pytz.timezone('Asia/Singapore')
 
 directory = './Data/'
 MONGODB_CONNECTION_STRING = os.getenv("MONGODB_CONNECTION_STRING")
@@ -10,6 +13,7 @@ print("connecting to mongoDB")
 client = MongoClient(MONGODB_CONNECTION_STRING)
 db = client.get_database('CherryPickerDB')
 now = datetime.now()
+now_in_singapore = now.astimezone(SGT)
 
 # ensure only latest 3 collections in DB at any one time
 existingCollections = db.list_collection_names()
