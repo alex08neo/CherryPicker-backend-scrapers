@@ -5,7 +5,7 @@
 class Venue:
     venue = {}
 
-    def __init__(self, ratings, link, images, title, location, tags, price, pax, description, facilities=[], roomNames=[""], promos=""):
+    def __init__(self, ratings, link, images, title, location, tags, price, pax, description, facilities=[], promos=""):
         self.venue = {
             "ratings": ratings,
             "link": link,
@@ -17,7 +17,6 @@ class Venue:
             "pax": pax,  # Pax is standing capacity
             "description": description,
             "facilities": facilities,
-            "roomNames": roomNames,  # Some venues might have more than 1 room
             "promos": promos,  # Promo string
         }
 
