@@ -29,7 +29,8 @@ def extractVenue(venue):
 
     linkToGo = venue.find('a')['href']
     # Request actual Link to entire page
-    url = "https://www.venuerific.com{}".format(linkToGo)
+    url = "https://www.venuerific.com{}".format(linkToGo).split("?")[0]
+    print(url)
     if(url in visitedVenues):
         return
     else:
@@ -160,8 +161,9 @@ def extractVenue(venue):
         baseDescription = description
         for index, eachVenueHtml in enumerate(allVenuesHtml):
 
-            link = baseUrl + "?room_id={}#room-wrappper".format(
+            currentLink = baseUrl + "?room_id={}#room-wrappper".format(
                 roomID[index])
+            print(currentLink)
 
             a = eachVenueHtml.find('div', class_="photo-video-slider")
             imagesHtml = a.findAll('li')
@@ -170,7 +172,7 @@ def extractVenue(venue):
                 imagesLink.append(i.find('img')['src'])
 
             # Title
-            title = FormatTitle(baseTitle + " | " + eachVenueHtml.find(
+            currentTitle = FormatTitle(baseTitle + " | " + eachVenueHtml.find(
                 'div', class_="info-title").find('h2').getText().strip())
 
             infoHtml = eachVenueHtml.find(
@@ -185,7 +187,7 @@ def extractVenue(venue):
                 'div', class_="row").findAll('div', class_="col-xs-12")
 
             # Main venue description + current room description
-            description = baseDescription + " " + moreInfoHtml[0].find(
+            currentDescription = baseDescription + " " + moreInfoHtml[0].find(
                 'div', class_="abstract").getText().strip()
 
             facilities = moreInfoHtml[1].find(
@@ -221,7 +223,7 @@ def extractVenue(venue):
 
             # Create Venue Class
             singleVenue = VenueClass.Venue(
-                ratings, link, imagesLink, title, location, tags, price, pax, description, facilities, promos)
+                ratings, currentLink, imagesLink, currentTitle, location, tags, price, pax, currentDescription, facilities, promos)
 
             # Add Venue to object
             allVenues.append(singleVenue.getVenue())
