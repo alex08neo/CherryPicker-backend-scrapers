@@ -113,7 +113,7 @@ def extractVenue(room, venueType):
 
     # Create Venue Class
     singleVenue = VenueClass.Venue(
-        ratings, link, images, title, location, tags, price, pax, description, facilities, promos)
+        ratings, link, images, title, location, tags, price, int(pax), description, facilities, promos)
 
     # Add Venue
     allVenues.append(singleVenue.getVenue())

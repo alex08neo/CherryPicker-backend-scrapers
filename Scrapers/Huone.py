@@ -70,7 +70,7 @@ def extractVenue(tag, venue):
 
     # create Venue Class with all inputs
     singleVenue = VenueClass.Venue(
-        ratings, venue_link, images, title, location, tags, price, capacity, desc, facilities)
+        ratings, venue_link, images, title, location, tags, price, int(capacity), desc, facilities)
 
     # add this venue to the Venue Class array
     allVenues.append(singleVenue.getVenue())
