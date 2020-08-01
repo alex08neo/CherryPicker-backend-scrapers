@@ -30,7 +30,6 @@ def extractVenue(venue):
     linkToGo = venue.find('a')['href']
     # Request actual Link to entire page
     url = "https://www.venuerific.com{}".format(linkToGo).split("?")[0]
-    print(url)
     if(url in visitedVenues):
         return
     else:
