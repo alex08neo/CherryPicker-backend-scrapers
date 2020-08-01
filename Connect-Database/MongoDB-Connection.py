@@ -10,6 +10,7 @@ print("connecting to mongoDB")
 client = MongoClient(MONGODB_CONNECTION_STRING)
 db = client.get_database('CherryPickerDB')
 
+db.drop_collection('venues')
 venue = db['venues']
 
 # load data to mongo
