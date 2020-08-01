@@ -162,7 +162,6 @@ def extractVenue(venue):
 
             currentLink = baseUrl + "?room_id={}#room-wrappper".format(
                 roomID[index])
-            print(currentLink)
 
             a = eachVenueHtml.find('div', class_="photo-video-slider")
             imagesHtml = a.findAll('li')
