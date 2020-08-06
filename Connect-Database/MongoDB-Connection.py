@@ -31,4 +31,4 @@ for filename in os.listdir(directory):
                 data["updateOn"] = now_in_singapore
                 print(data)
                 
-        # venue.insert_many(json_data)
+        venue.insert_many(json_data)
