@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup
 from requests import get
-import VenueClass
 import json
 from DataFormatting.FormatTime import FormatTime
 from DataFormatting.FormatPrice import FormatPrice
 from DataFormatting.FormatText import FormatTitle
+from DataFormatting import VenueClass
 
 allVenues = []  # Array to store all Venues of type VenueClass
 
@@ -105,7 +105,7 @@ def extractVenue(venue):
 
     # create Venue Class with all inputs
     singleVenue = VenueClass.Venue(
-        ratings, venue_link, images, title, location, tags, price, capacity, desc, facilities)
+        ratings, venue_link, images, title, location, tags, price, int(capacity), desc, facilities)
 
     # add this venue to the Venue Class array
     if(not singleVenue in allVenues):
@@ -133,7 +133,8 @@ while True:
         try:
             extractVenue(venue)
         except:
-            print("Error in VenueExplorer Scraper for {}".format(venue.find('div', class_='event-name').text.strip()))
+            print("Error in VenueExplorer Scraper for {}".format(
+                venue.find('div', class_='event-name').text.strip()))
 
     # Increase counter to go next page
     currentPage += 1

@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup
 from requests import get
-import VenueClass
 import json
 from DataFormatting.FormatTime import FormatTime
 from DataFormatting.FormatPrice import FormatPrice
 from DataFormatting.FormatText import FormatSentence, FormatTitle
+from DataFormatting import VenueClass
 
 allVenues = []  # Array to store all Venues of type VenueClass
 visitedVenues = []
@@ -29,7 +29,7 @@ def extractVenue(venue):
 
     linkToGo = venue.find('a')['href']
     # Request actual Link to entire page
-    url = "https://www.venuerific.com{}".format(linkToGo)
+    url = "https://www.venuerific.com{}".format(linkToGo).split("?")[0]
     if(url in visitedVenues):
         return
     else:
@@ -143,9 +143,9 @@ def extractVenue(venue):
     # (3)
     # Extracting rooms details
     # Extract id
-    roomName = []
+    roomID = []
     for item in html_soup_individual_venue.find_all(attrs={"data-id": True, "data-type": False, "data-price": True}):
-        roomName.append(item['data-id'])
+        roomID.append(item['data-id'])
 
     allVenuesHtml = html_soup_individual_venue.find(
         'div', {'id': 'venue-room-wrapper'})
@@ -160,8 +160,8 @@ def extractVenue(venue):
         baseDescription = description
         for index, eachVenueHtml in enumerate(allVenuesHtml):
 
-            link = baseUrl + "?room_id={}#room-wrappper".format(
-                roomName[index])
+            currentLink = baseUrl + "?room_id={}#room-wrappper".format(
+                roomID[index])
 
             a = eachVenueHtml.find('div', class_="photo-video-slider")
             imagesHtml = a.findAll('li')
@@ -170,7 +170,7 @@ def extractVenue(venue):
                 imagesLink.append(i.find('img')['src'])
 
             # Title
-            title = FormatTitle(baseTitle + " | " + eachVenueHtml.find(
+            currentTitle = FormatTitle(baseTitle + " | " + eachVenueHtml.find(
                 'div', class_="info-title").find('h2').getText().strip())
 
             infoHtml = eachVenueHtml.find(
@@ -185,7 +185,7 @@ def extractVenue(venue):
                 'div', class_="row").findAll('div', class_="col-xs-12")
 
             # Main venue description + current room description
-            description = baseDescription + " " + moreInfoHtml[0].find(
+            currentDescription = baseDescription + " " + moreInfoHtml[0].find(
                 'div', class_="abstract").getText().strip()
 
             facilities = moreInfoHtml[1].find(
@@ -221,7 +221,7 @@ def extractVenue(venue):
 
             # Create Venue Class
             singleVenue = VenueClass.Venue(
-                ratings, link, imagesLink, title, location, tags, price, pax, description, facilities, roomName, promos)
+                ratings, currentLink, imagesLink, currentTitle, location, tags, price, int(pax), currentDescription, facilities, promos)
 
             # Add Venue to object
             allVenues.append(singleVenue.getVenue())
@@ -260,7 +260,7 @@ def extractVenue(venue):
 
         # Create Venue Class
         singleVenue = VenueClass.Venue(ratings, link, imagesLink, title, location,
-                                       tags, price, pax, description, facilities, roomName, promos)
+                                       tags, price, int(pax), description, facilities, promos)
 
         # Add Venue to object
         allVenues.append(singleVenue.getVenue())
@@ -274,7 +274,8 @@ def getVenuesOnPage(html_soup):
         try:
             extractVenue(venue)
         except:
-            print("Error in Venuerific Scraper for {}".format(venue.find('a')['href']))
+            print("Error in Venuerific Scraper for {}".format(
+                venue.find('a')['href']))
 
 
 # MAIN FUNCTION
