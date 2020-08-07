@@ -28,7 +28,7 @@ for filename in os.listdir(directory):
             json_data = json.load(write_file)
             # add in updateOn attribute into each of the venue object
             for data in json_data:
-                data["updateOn"] = now_in_singapore
+                data["updatedOn"] = now_in_singapore
                 print(data)
                 
         venue.insert_many(json_data)
