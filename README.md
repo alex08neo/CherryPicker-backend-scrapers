@@ -29,8 +29,6 @@
 - To download all the required dependencies, simply run `pipenv install -r requirements.txt`
 - Whenever you download a new library, add it to requirements.txt by doing `pip freeze > requirements.txt`
 
-- Whenever you download a new library, add it to requirements.txt by doing `pip lock -r > requirements.txt`
-
 ### (4) Connecting to MongoDB Atlas
 
 - Please obtain .env file from @ooihuiying
@@ -39,8 +37,6 @@
 
 - (Without connecting to database-MongoAtlas) Please make sure that you are on the same directory level as Scrapers, Data, Connect-Database folders before running the command `python Scrapers/<SCRAPERNAME>.py`
 - (Saving data to database-MongoAtlas) Run `bash run.sh`
-
-## How to start development:
 
 ### Scrapers created
 
