@@ -1,6 +1,6 @@
 # CherryPicker-backend
 
-## This repository contains the Scrapers for Event Venue Rental Websites. Scrapers will be run by AWS Lambda and cloudwatch which will then transfer data to MongoDB atlas
+## This repository contains the Scrapers for Event Venue Rental Websites. Scrapers will be run by AWS Lambda and cloudwatch which will then transfer data to MongoDB atlas.
 
 ## Libraries used:
 
@@ -38,7 +38,7 @@
 - (Without connecting to database-MongoAtlas) Please make sure that you are on the same directory level as Scrapers, Data, Connect-Database folders before running the command `python Scrapers/<SCRAPERNAME>.py`
 - (Saving data to database-MongoAtlas) Run `bash run.sh`
 
-### Scrapers created
+## Scrapers created
 
 - TagVenue
 - Venuerific
