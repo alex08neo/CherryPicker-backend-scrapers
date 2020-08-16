@@ -56,3 +56,4 @@
 - https://hackernoon.com/building-a-web-scraper-from-start-to-finish-bb6b95388184
 - https://medium.com/@DrGabrielHarris/python-how-create-requirements-txt-using-pipenv-2c22bbb533af
 - https://pypi.org/project/python-dotenv/
+- https://medium.com/@ooiyueying/serverless-python-web-scraping-on-schedule-using-ec2-lambda-ssm-and-cloudwatch-on-aws-and-197d30331261
